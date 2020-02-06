@@ -12,7 +12,7 @@ fn main() {
     app.cache_set_max(1024);
     app.cache_set_max_mem(1024);
 
-    let path = "/Users/renatomoitinho/Documents/repositories/rust-lang/imgs/500kb.jpg";
+    let path = "/home/0.png";
     
     let mut start = Instant::now();
     let buffer = fs::read(path).unwrap();
@@ -22,7 +22,7 @@ fn main() {
     // Load image
     start = Instant::now();
     //let image = VipsImage::image_new_from_buffer(&buffer, "").unwrap();
-    let image = ops::thumbnail_buffer(&buffer, 512).unwrap();
+    let image = ops::thumbnail_buffer(&buffer, 1024).unwrap();
 
     println!("time to read image from buffer w={:?} h={:?} time={:?} format={:?}", 
         image.get_width(), 
@@ -48,7 +48,7 @@ fn main() {
 
     // only write, no time
 
-    let mut file = File::create("/Users/renatomoitinho/Documents/repositories/rust-lang/imgs/out_500kb.jpg")
+    let mut file = File::create("/home/out_0.jpg")
     .expect("Error create file");
     file.write(&out_buffer).expect("no write");
     file.flush().expect("no flush");
