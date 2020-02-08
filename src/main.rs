@@ -75,7 +75,6 @@ fn main() {
     app.cache_set_max(0);
     app.cache_set_max_mem(0);
 
-
     let path: &Path = Path::new(args[1].as_str());
     let square: i32 = args[2].parse().unwrap();
     let buffer = fs::read(path).expect("Not file Found.");
